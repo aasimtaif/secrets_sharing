@@ -55,9 +55,8 @@ function Form() {
                         }}
                         defaultValue="select duration field"
                     >
-                        <option>select duration field</option>
-                        <option value={"minute"}>Minutes</option>
                         <option value={"hour"}>Hours</option>
+                        <option value={"minute"}>Minutes</option>
                         <option value={"day"}>Days</option>
                     </select>
 
