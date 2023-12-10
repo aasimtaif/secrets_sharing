@@ -5,7 +5,7 @@ import axios from 'axios';
 import '../App.css'
 
 function Form() {
-    const [input, setInput] = useState({ secret: '', visitesAllowed: '', durationTime: '', durationFiled: '60' })
+    const [input, setInput] = useState({ secret: '', visitesAllowed: '', durationTime: '1', durationFiled: '60' })
     const [open, setOpen] = React.useState(false);
     const [response, setResponse] = useState()
     const handleClick = () => {
@@ -69,7 +69,7 @@ function Form() {
                     <br />
                     {input?.durationTime &&
                         <>
-                            And will be destroyed in {input?.duration}  minutes
+                            And will be destroyed in {parseInt(input.durationTime) * parseInt(input.durationFiled)}  minutes
                         </>
                     }
                 </h2>
