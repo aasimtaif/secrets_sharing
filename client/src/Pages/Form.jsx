@@ -27,7 +27,7 @@ function Form() {
                 duration: parseInt(input.durationTime) * parseInt(input.durationFiled)
             })
             console.log(res.data.id)
-            setResponse(`http://localhost:5173/secret/${res.data.id}`)
+            setResponse(`https://secrets-keeper.vercel.app//secret/${res.data.id}`)
             handleClick()
             setInput('')
         } catch (err) {
