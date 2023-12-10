@@ -5,7 +5,7 @@ import axios from 'axios';
 import '../App.css'
 
 function Form() {
-    const [input, setInput] = useState({ secret: '', visitesAllowed: '', durationTime: '', durationFiled: '' })
+    const [input, setInput] = useState({ secret: '', visitesAllowed: '', durationTime: '', durationFiled: '60' })
     const [open, setOpen] = React.useState(false);
     const [response, setResponse] = useState()
     const handleClick = () => {
