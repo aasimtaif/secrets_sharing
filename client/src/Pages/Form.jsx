@@ -5,18 +5,22 @@ import axios from 'axios';
 import '../App.css'
 
 function Form() {
-    const [input, setInput] = useState({ secret: '', visitesAllowed: '', durationTime: '1', durationFiled: '60' })
+    const [input, setInput] = useState({ secret: '', visitesAllowed: '', durationTime: '1', durationFiled: 'hour' })
     const [open, setOpen] = React.useState(false);
     const [response, setResponse] = useState()
     const handleClick = () => {
         setOpen(!open);
     };
-
+    const timeField = {
+        minute: 1,
+        hour: 60,
+        day: 24 * 60
+    }
     const handleChange = (event) => {
         setInput({ ...input, [event.target.name]: event.target.value })
     }
 
-    console.log(input)
+    console.log()
     const handleSubmit = async (event) => {
         event.preventDefault()
         console.log('submitting')
@@ -24,7 +28,7 @@ function Form() {
             const res = await axios.post(`${import.meta.env.VITE_APP_BASE_URL}/`, {
                 secret: input.secret,
                 visitesAllowed: parseInt(input.visitesAllowed),
-                duration: parseInt(input.durationTime) * parseInt(input.durationFiled)
+                duration: parseInt(input.durationTime) * parseInt(timeField[input.durationFiled])
             })
             console.log(res.data.id)
             setResponse(`https://secrets-keeper.vercel.app//secret/${res.data.id}`)
@@ -52,9 +56,9 @@ function Form() {
                         defaultValue="select duration field"
                     >
                         <option>select duration field</option>
-                        <option value={1}>Minutes</option>
-                        <option value={60}>Hours</option>
-                        <option value={24 * 60}>Days</option>
+                        <option value={"minute"}>Minutes</option>
+                        <option value={"hour"}>Hours</option>
+                        <option value={"day"}>Days</option>
                     </select>
 
                 </div>
@@ -69,7 +73,8 @@ function Form() {
                     <br />
                     {input?.durationTime &&
                         <>
-                            And will be destroyed in {parseInt(input.durationTime) * parseInt(input.durationFiled)}  minutes
+                            And will be destroyed in {parseInt(input.durationTime)} {input.durationFiled}
+                            {parseInt(input.durationTime) > 1 ? 's' : ''}
                         </>
                     }
                 </h2>
