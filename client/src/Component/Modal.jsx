@@ -49,7 +49,7 @@ const Modal = ({ isOpen, onClose, link }) => {
                 {
                     document.queryCommandSupported('copy') &&
                     <>
-                        <button onClick={copyToClipboard}>Copy</button>
+                        <button onClick={copyToClipboard}>Copy to ClipBoard</button>
                         {copySuccess}
                     </>
                 }
