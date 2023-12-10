@@ -44,7 +44,7 @@ function Form() {
                     <label>
                         The secret is only accessble for
                     </label>
-                    <input type="text" name="durationTime" value={input?.durationTime} placeholder="Duration value" onChange={handleChange} />
+                    <input type="text" required name="durationTime" value={input?.durationTime} placeholder="Duration value" onChange={handleChange} />
                     <select
                         onChange={(event) => {
                             setInput({ ...input, durationFiled: event.target.value })
