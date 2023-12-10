@@ -1,14 +1,14 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
-import Form from './Form.jsx'
+import Form from './Pages/Form.jsx'
+import Secret from './Pages/Secret.jsx'
 function App() {
-  console.log(import.meta.env.VITE_APP_BASE_URL)
   return (
 
     <>
       <Routes>
         <Route exact path='/' element={<Form />} />
-        <Route exact path='/secret/:id' element={""} />
+        <Route exact path='/secret/:id' element={<Secret />} />
       </Routes>
     </>
   )
