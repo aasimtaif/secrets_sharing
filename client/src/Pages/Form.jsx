@@ -3,11 +3,13 @@ import { useState } from 'react'
 import Modal from "../Component/Modal";
 import axios from 'axios';
 import '../App.css'
+import { Watch } from 'react-loader-spinner'
 
 function Form() {
     const [input, setInput] = useState({ secret: '', visitesAllowed: '', durationTime: '1', durationFiled: 'hour' })
     const [open, setOpen] = React.useState(false);
     const [response, setResponse] = useState()
+    const [isLoaded, setIsLoaded] = useState(false)
     const handleClick = () => {
         setOpen(!open);
     };
@@ -24,6 +26,7 @@ function Form() {
     const handleSubmit = async (event) => {
         event.preventDefault()
         console.log('submitting')
+        setIsLoaded(true)
         try {
             const res = await axios.post(`${import.meta.env.VITE_APP_BASE_URL}/`, {
                 secret: input.secret,
@@ -32,13 +35,29 @@ function Form() {
             })
             console.log(res.data.id)
             setResponse(`https://secrets-keeper.vercel.app//secret/${res.data.id}`)
+
             handleClick()
             setInput('')
         } catch (err) {
             console.log(err)
         }
+        setIsLoaded(false)
     }
-
+    if (isLoaded) return (
+        <>
+            <Watch
+                height="80"
+                width="80"
+                radius="48"
+                color="#4fa94d"
+                ariaLabel="watch-loading"
+                wrapperStyle={{}}
+                wrapperClassName=""
+                visible={true}
+            />
+        </>
+    )
+    console.log(isLoaded)
     return (
         <>
             <form onSubmit={handleSubmit}>
