@@ -4,6 +4,7 @@ const YourModel = require('./secret.model');
 const dotenv = require('dotenv');
 const Cryptr = require('cryptr');
 const cors = require('cors');
+const axios = require('axios');
 const app = express();
 
 
@@ -67,8 +68,15 @@ app.get('/:id', async (req, res) => {
         res.status(500).json({ message: err });
     }
 })
+setInterval(() => {
+    axios.get('https://secret-keeper-ht64.onrender.com') // Replace with your actual Render app URL where your Express server is hosted
+        .then(() => console.log('Ping successful'))
+        .catch((err) => console.error('Ping failed:', err));
+},  7 * 60 * 1000);
+
+
 app.get('/', (req, res) => {
-    res.send("hello world")
+    res.status(200).send("hello world")
 })
 
 app.listen(port, () => {
