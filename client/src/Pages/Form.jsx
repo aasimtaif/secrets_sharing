@@ -34,7 +34,7 @@ function Form() {
                 duration: parseInt(input.durationTime) * parseInt(timeField[input.durationFiled])
             })
             console.log(res.data.id)
-            setResponse(`https://secrets-keeper.vercel.app//secret/${res.data.id}`)
+            setResponse(`https://secrets-keeper.vercel.app/secret/${res.data.id}`)
 
             handleClick()
             setInput('')

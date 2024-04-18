@@ -56,3 +56,7 @@ label {
 font-size: smaller;
   margin-right: 1em;
 }
+.timer{
+  font-size: 2em;
+  margin: 1em 0;
+}
