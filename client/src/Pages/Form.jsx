@@ -104,7 +104,7 @@ function Form() {
             }
             <Modal isOpen={open} onClose={handleClick} link={response} />
 
-            <button onClick={openModal}>Open Modal</button>
+            {/* <button onClick={openModal}>Open Modal</button> */}
         </>
     )
 }
