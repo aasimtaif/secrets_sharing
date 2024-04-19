@@ -1,4 +1,4 @@
-import React, { useEffect,  useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 function Secret() {
@@ -14,9 +14,9 @@ function Secret() {
 
 
             } catch (err) {
-                // console.log(err.response.data.message)
+                console.log(err.response.data.message)
                 console.log(err)
-                // setSecret({ err: err.response.data.message })
+                setSecret({ err: err.response.data.message })
             }
         }
         fetchData()
@@ -33,10 +33,10 @@ function Secret() {
                         {secret?.secret}
                     </h1>
 
-                    <h4>
+                    {secret && <h4>
                         It is only accessble for &nbsp;
                         {secret?.remainingVisites} more visits
-                    </h4>
+                    </h4>}
                 </>
             }
 
