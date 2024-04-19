@@ -28,7 +28,7 @@ function Form() {
         console.log('submitting')
         setIsLoaded(true)
         try {
-            const res = await axios.post(`${import.meta.env.VITE_APP_BASE_URL}/`, {
+            const res = await axios.post(`https://secret-keeper-ht64.onrender.com/`, {
                 secret: input.secret,
                 visitesAllowed: parseInt(input.visitesAllowed),
                 duration: parseInt(input.durationTime) * parseInt(timeField[input.durationFiled])
@@ -104,7 +104,7 @@ function Form() {
             }
             <Modal isOpen={open} onClose={handleClick} link={response} />
 
-            {/* <button onClick={openModal}>Open Modal</button> */}
+            <button onClick={openModal}>Open Modal</button>
         </>
     )
 }

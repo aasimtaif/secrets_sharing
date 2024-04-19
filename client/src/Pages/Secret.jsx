@@ -1,42 +1,30 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect,  useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-import Timer from '../Component/Timer'
 function Secret() {
     const { id } = useParams()
     const [secret, setSecret] = useState()
-    const effectRan = useRef(false)
-    const time = new Date();
-    time.setSeconds(time.getSeconds() + 200); // 10 minutes timer
+    // // 10 minutes timer
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/${id}`)
-             setSecret(res.data)
+                const res = await axios.get(`https://secret-keeper-ht64.onrender.com/${id}`)
+                setSecret(res.data)
 
 
             } catch (err) {
-                console.log(err.response.data.message)
-                setSecret({ err: err.response.data.message })
+                // console.log(err.response.data.message)
+                console.log(err)
+                // setSecret({ err: err.response.data.message })
             }
         }
-        // to prevent useEffect from running on initial render
-        if (!effectRan.current) {
-            fetchData()
-            effectRan.current = true
-        }
+        fetchData()
     }, [id])
-    if (secret) {
-        const expireTime = new Date(Date.now(secret.validTill))
-        console.log(secret)
 
-    }
 
     return (
         <div>
-            {secret && <Timer targetDate={ secret.validTill} />
-            }
             {secret?.err ? <h1>
                 {secret?.err}
             </h1> :

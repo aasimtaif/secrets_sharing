@@ -8,7 +8,7 @@ function App() {
     <>
       <Routes>
         <Route exact path='/' element={<Form />} />
-        <Route exact path='/secret/:id' element={<Secret />} />
+        <Route exact path='/secret/:id' element={< Secret />} />
       </Routes>
     </>
   )
