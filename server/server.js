@@ -69,11 +69,11 @@ app.get('/:id', async (req, res) => {
         res.status(500).json({ message: err });
     }
 })
-setInterval(() => {
-    axios.get('https://secret-keeper-ht64.onrender.com') // Replace with your actual Render app URL where your Express server is hosted
-        .then(() => console.log('Ping successful'))
-        .catch((err) => console.error('Ping failed:', err));
-},  10 * 60 * 1000);
+// setInterval(() => {
+//     axios.get('https://secret-keeper-ht64.onrender.com') // Replace with your actual Render app URL where your Express server is hosted
+//         .then(() => console.log('Ping successful'))
+//         .catch((err) => console.error('Ping failed:', err));
+// },  10 * 60 * 1000);
 
 
 app.get('/', (req, res) => {
