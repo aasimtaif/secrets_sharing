@@ -53,10 +53,25 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 label {
-font-size: smaller;
+  font-size: smaller;
   margin-right: 1em;
 }
-.timer{
+.timer {
   font-size: 2em;
   margin: 1em 0;
+}
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(231, 32, 32);
+  width: 50%;
+  margin:  auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.animation {
+  width: 450px;
+  height: 350px;
 }

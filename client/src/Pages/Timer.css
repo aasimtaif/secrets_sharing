@@ -1,0 +1,17 @@
+.timer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px; /* Adjust width as needed */
+    height: 150px; /* Adjust height as needed */
+    border-radius: 10%;
+    background-color: #ddd;
+    padding: 10px;
+    margin: 3rem auto;
+  }
+  
+  .timer-text {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+  }
