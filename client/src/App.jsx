@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     axios.get('http://localhost:8700').then(res => {
       console.log(res)
-      setLoading(false)
+      // setLoading(false)
     }).catch(err => {
       console.log(err)
       setLoading(false)

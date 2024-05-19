@@ -66,12 +66,25 @@ label {
   justify-content: center;
   align-items: center;
   color: rgb(231, 32, 32);
-  width: 50%;
-  margin:  auto;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  width: 100%; /* Full width for responsiveness */
+  margin: auto;
+  overflow: hidden; /* Clip content that overflows */
 }
+
 .animation {
-  width: 450px;
-  height: 350px;
+  width: 80%; /* Responsive width based on percentage */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 450px; /* Set a maximum width for larger screens */
+}
+
+@media only screen and (max-width: 768px) {
+  /* Styles for screens smaller than 768px */
+  .animation {
+    width: 100%; /* Full width on smaller screens */
+  }
+}
+
+p {
+  text-align: center; /* Center text within the paragraph */
+  margin-top: 10px; /* Add some space between the timer and text */
 }
