@@ -11,9 +11,9 @@ function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    axios.get('http://localhost:8700').then(res => {
+    axios.get('https://secret-keeper-ht64.onrender.com').then(res => {
       console.log(res)
-      // setLoading(false)
+      setLoading(false) 
     }).catch(err => {
       console.log(err)
       setLoading(false)
